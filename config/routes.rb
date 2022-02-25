@@ -2,9 +2,17 @@ Rails.application.routes.draw do
 
   root "topics#index"
 
+  # Topics routes
   resources :topics
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # User routes
+  resources :user, only: [:new, :create, :edit, :update, :show, :destroy]
+
+  # Sessions routes
+  get '/login', to: 'sessions#login'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+  post 'logout', to: 'sessions#destroy'
+
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end
