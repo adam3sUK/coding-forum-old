@@ -3,9 +3,9 @@
 <ul>
   <% @topics.each do |topic| %>
     <li>
-      <a href="/topics/<%= topic.id %>">
-        <%= topic.title %>
-      </a>
+      <%= link_to topic.title, topic%>
     </li>
   <% end %>
 </ul>
+
+<%= link_to "New Thread", new_topic_path %>
