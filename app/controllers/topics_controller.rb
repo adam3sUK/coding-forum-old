@@ -17,6 +17,7 @@ class TopicsController < ApplicationController
     @topic = Topic.create(topic_params.merge(user_id: @user.id))
 
     if @topic.save
+      @topic.posts.create(post_params.merge(user_id: @user.id))
       redirect_to @topic
     else
       render :new, status: :unprocessable_entity
@@ -40,6 +41,10 @@ class TopicsController < ApplicationController
   private
     def topic_params
       params.require(:topic).permit(:title)
+    end
+
+    def post_params
+      params.require(:topic).permit(:body)
     end
 
     def find_user
