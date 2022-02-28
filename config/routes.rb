@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root "topics#index"
 
   # Topics routes
-  resources :topics
+  resources :topics do
+    resources :posts
+  end
 
   # User routes
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy]

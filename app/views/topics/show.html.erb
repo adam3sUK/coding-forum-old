@@ -1,3 +1,7 @@
 <h1><%= @topic.title %></h1>
 
-<p>This is the page for topic <%= @topic.id %></p>
+<%= render @topic.posts %>
+
+
+<h2>Reply:</h2>
+<%= render 'posts/form' %>
