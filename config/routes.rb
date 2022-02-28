@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   resources :topics
 
   # User routes
-  resources :user, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
 
   # Sessions routes
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-  post 'logout', to: 'sessions#destroy'
+  post '/logout', to: 'sessions#destroy'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end

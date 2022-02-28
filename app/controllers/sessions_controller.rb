@@ -1,4 +1,4 @@
-class SessionController < ActionController::Base
+class SessionsController < ActionController::Base
 
   def create
     @user = User.find_by(username: params[:username])
@@ -9,5 +9,11 @@ class SessionController < ActionController::Base
     else
       message = "Login failed! Please make sure username and password are correct."
       redirect_to login_path, notice: message
+    end
   end
+
+  def destroy
+    session.clear
+  end
+
 end

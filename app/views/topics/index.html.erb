@@ -1,11 +1,15 @@
-<h1>Threads</h1>
+<% if logged_in? %>
+  <h1>Hello <%= current_user.username %></h1>
+<% else %>
+  <h1>Threads</h1>
+<% end %>
 
-<ul>
+
+<div>
   <% @topics.each do |topic| %>
-    <li>
-      <%= link_to topic.title, topic%>
-    </li>
+    <h2><%= link_to topic.title, topic%></h2>
+    <p>Created by <%= topic.user.username %></p>
   <% end %>
-</ul>
+</div>
 
 <%= link_to "New Thread", new_topic_path %>

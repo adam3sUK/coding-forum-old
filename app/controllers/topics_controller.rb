@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  before_action :find_user
+
   def index
     @topics = Topic.all
   end
@@ -12,7 +14,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(topic_params)
+    @topic = Topic.create(topic_params.merge(user_id: @user.id))
 
     if @topic.save
       redirect_to @topic
@@ -38,5 +40,9 @@ class TopicsController < ApplicationController
   private
     def topic_params
       params.require(:topic).permit(:title)
+    end
+
+    def find_user
+      @user = User.find_by_id(session[:user_id])
     end
 end
