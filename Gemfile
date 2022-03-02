@@ -74,3 +74,5 @@ end
 gem 'rubocop', require: false
 
 gem 'bcrypt'
+
+gem 'cssbundling-rails'
