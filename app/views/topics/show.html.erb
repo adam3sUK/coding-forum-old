@@ -2,6 +2,9 @@
 
 <%= render @topic.posts %>
 
-
+<% if logged_in? %>
 <h2>Reply:</h2>
 <%= render 'posts/form' %>
+<% else %>
+<p>Please login to join the conversation</p>
+<% end %>
