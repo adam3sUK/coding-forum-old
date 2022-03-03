@@ -1,9 +1,5 @@
-<% if logged_in? %>
-  <h1>Hello <%= current_user.username %></h1>
-<% else %>
-  <h1>Threads</h1>
-<% end %>
 
+  <h1>Threads</h1>
 
 <div>
   <% @topics.each do |topic| %>

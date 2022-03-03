@@ -5,7 +5,7 @@ class SessionsController < ActionController::Base
 
     if !!@user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path
+      redirect_to root_path
     else
       message = "Login failed! Please make sure username and password are correct."
       redirect_to login_path, notice: message

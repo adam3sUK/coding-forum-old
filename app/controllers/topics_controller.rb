@@ -10,17 +10,23 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new
+    if @user
+      @topic = Topic.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
-    @topic = Topic.create(topic_params.merge(user_id: @user.id))
+    if @user
+      @topic = Topic.create(topic_params.merge(user_id: @user.id))
 
-    if @topic.save
-      @topic.posts.create(post_params.merge(user_id: @user.id))
-      redirect_to @topic
-    else
-      render :new, status: :unprocessable_entity
+      if @topic.save
+        @topic.posts.create(post_params.merge(user_id: @user.id))
+        redirect_to @topic
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
