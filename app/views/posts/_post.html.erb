@@ -1,12 +1,12 @@
-  <div class="card mb-4">
+  <div class="card mb-1">
     <div class="card-body">
       <div class="row">
         <div class="col-md-4 col-lg-2">
-          <h3>
+          <h2>
             <%= link_to post.user.username, user_path(post.user) %>
-          </h3>
-          <p>Posts: <%= post.user.posts.count %></p>
-          <p>Joined: <%= post.user.created_at.strftime("%d %B %G") %></p>
+          </h2>
+          <p>Posts: <%= post.user.posts.count %><br/>
+          Joined: <%= post.user.created_at.strftime("%d %B %G") %></p>
         </div>
         <div class="col-md-8 col-lg-10">
           <p>

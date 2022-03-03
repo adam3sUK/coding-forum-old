@@ -1,17 +1,3 @@
-$theme-colors: (
-  "primary":   $purple,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-);
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
-
-
 .navbar {
   position: fixed;
   top: 0;
@@ -27,7 +13,7 @@ $theme-colors: (
     width: 100%;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
     .inline-items {
       .nav-link {
         display: inline-block;
@@ -35,3 +21,11 @@ $theme-colors: (
     }
   }
 }
+
+$h1-font-size: 2rem;
+$h2-font-size: 1rem;
+$primary: #5C4CE3;
+
+
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
