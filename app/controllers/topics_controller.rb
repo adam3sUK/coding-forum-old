@@ -21,7 +21,6 @@ class TopicsController < ApplicationController
   def create
     if @user
       @topic = Topic.create(topic_params.merge(user_id: @user.id))
-
       if @topic.save
         @topic.posts.create(post_params.merge(user_id: @user.id))
         redirect_to @topic

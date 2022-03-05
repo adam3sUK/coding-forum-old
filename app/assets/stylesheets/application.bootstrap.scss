@@ -26,6 +26,14 @@ $h1-font-size: 2rem;
 $h2-font-size: 1rem;
 $primary: #5C4CE3;
 
+.bg-primary.text-white {
+  a {
+    color: white;
+    &:hover {
+      color: inherit;
+    }
+  }
+}
 
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
